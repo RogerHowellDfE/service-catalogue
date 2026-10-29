@@ -1,0 +1,18 @@
+# Hand-written (there is no `dotnet new` template for .gitattributes).
+# Normalise line endings to LF in the repository; Windows scripts keep CRLF.
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+*.mp4 binary
+*.webm binary
