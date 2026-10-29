@@ -30,6 +30,8 @@ Repetition that can't be avoided is **generated**. See [ADR-0013](adr/0013-singl
 | How we work: acceptance criteria, DoR and DoD, test data, evidence, scanning | [ways-of-working.md](ways-of-working.md) | a section link |
 | External standards and DfE guidance | [standards.md](standards.md) | `SS 9`, `TCoP 6`, `DfE-TG: storing source code` |
 | Open questions and resolved ones | [unknowns.md](unknowns.md) | `U24`, `R6` |
+| Threats and mitigations | `security/threat-model.md` (created in M0) | a section link |
+| Retired terms and what replaces them | `terms.yml` (created with the docs checker in M0) | checked automatically |
 | Facts about the code (versions, environments, integrations, secrets, analysers, checks) | **The code** | Generated sections, or the Integrations status page |
 | Delivery slices | GitHub issues | `#123` |
 

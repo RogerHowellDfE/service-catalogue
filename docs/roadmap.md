@@ -18,10 +18,14 @@ Goal: everything needed to deliver slices safely, and the smallest end-to-end pa
 - A page laid out with the DfE frontend that works without JavaScript and passes axe (NFR-A1 to A3).
 - Sign-in required by default (NFR-S1, NFR-S2, [ADR-0006](adr/0006-authentication-and-authorisation.md)).
 - About the service (C19): footer links and the "What's new" page generated from the changelog ([ADR-0015](adr/0015-date-based-versions-and-changelog.md)).
+- Release script or workflow, and the version shown in the app ([ADR-0015](adr/0015-date-based-versions-and-changelog.md)).
+- Seeding scenarios, starting with `empty` and `small-estate`, selected by an AppHost parameter ([test data](ways-of-working.md#seeding-scenarios)).
+- A first threat model (`docs/security/threat-model.md`, NFR-S8), drafted early and updated by each slice that adds a trust boundary.
 - **Verification on ourselves** ([ADR-0012](adr/0012-verification-checks-and-drift-detection.md)):
   - the checks engine and CLI, starting with an OSI-approved `LICENCE` and the presence of the repo hygiene files
   - the analysers project, starting with banning `IsDevelopment()` and the EF InMemory provider
-  - the docs checker, including the ADR checks (`tools/docs-check.cs`, [ADR-0013](adr/0013-single-source-of-truth.md))
+  - the docs checker, including the ADR checks (`tools/docs-check.cs`, [ADR-0013](adr/0013-single-source-of-truth.md)) and the retired-terms list (`docs/terms.yml`)
+  - the repository checks that accepted ADRs already call for: no deployment or infrastructure-as-code files while running locally ([ADR-0009](adr/0009-local-first-hosting.md)), and no secrets in configuration files ([ADR-0014](adr/0014-credential-less-by-default.md))
   - Playwright checks for headers, Content Security Policy and frontend markup
 - CI: build, test (all layers), CodeQL (DfE SAST workflow), Dependabot, secret scanning, ZAP baseline. Pull request template with an evidence section.
 - Repo hygiene: meet every row marked M0 in the [DfE repository requirements](standards.md#dfe-repository-requirements) (with the single-developer departure, U19), plus a README, SECURITY.md and the Copilot/agent instructions.

@@ -8,11 +8,21 @@
 
 ## Backlog structure (GitHub)
 
-- **GitHub Project** (v2) for the whole product. Columns: *Backlog -> Ready -> In progress -> In review -> Done*.
-  Custom fields: Priority, Size, Horizon (Now/Next/Later), Module.
+- **GitHub Project** (v2) for the whole product. Columns: *Backlog -> Ready -> In progress -> In review -> Done*. The order within a column is the priority.
+  Two custom fields, each kept because it changes what someone does:
+
+  | Field | Values |
+  |---|---|
+  | Size | `XS` (an hour or two), `S` (up to a day), `M` (two or three days), `L` (too big: split it before it's Ready) |
+  | Model tier | `High-capability` or `Lighter`. See [AI-assisted delivery](#ai-assisted-delivery) |
+
+  The milestone gives the horizon, and labels give the type and module, so they aren't repeated as fields.
 - **Epics** are parent issues, with **sub-issues** for slices.
-- **Labels** for type (`type:epic`, `type:story`, `type:spike`, `type:chore`, `type:bug`, `type:adr`), module (`module:sources` and so on),
-  and concerns (`security`, `accessibility`, `performance`, `privacy`). Labels stand in for issue types, because issue types are only available to organisations.
+- **Labels** for type (`type:epic`, `type:story`, `type:spike`, `type:chore`, `type:bug`, `type:adr`), module (`module:sources`, `module:catalogue`, `module:insights`,
+  `module:identity`, `module:audit`, and `module:platform` for cross-cutting work such as hosts, SharedKernel, CI, tooling, checks, analysers and the docs checker;
+  labels for later modules are added when work on them starts), concerns that need a specialist eye in review (`security`, `accessibility`, `performance`, `privacy`)
+  and process labels that CI reads (`no-changelog`, `adr-correction`). Labels stand in for issue types, because issue types are only available to organisations.
+  Don't add a label unless something (a person, a query or a check) uses it.
 - **Milestones** match the roadmap outcomes (M0, M1, ...).
 - Issue forms (`.github/ISSUE_TEMPLATE`) prompt for every [acceptance criteria](#acceptance-criteria) section. The docs checker keeps them in step with this page ([ADR-0013](adr/0013-single-source-of-truth.md)).
 - The pull request template repeats the standards checklist and the evidence table, so the reviewer can check each one.
@@ -127,6 +137,16 @@ For each criterion in sections 1-8, the evidence that will prove it (see [Eviden
 - Small enough to finish in a few days at most. Dependencies and unknowns are listed.
 - If it adds a trust boundary or data classification, the threat model update is listed as part of the story.
 
+## Definition of Ready (other issue types)
+
+| Type | Ready when it has |
+|---|---|
+| Epic | The outcome, the milestone, the needs (N-refs) and capabilities (C-refs) it serves, and its slices listed as sub-issues (they can be refined later) |
+| Spike | The question, the unknown it answers (U-ref), a time box, and the expected output (an ADR, an updated unknown, or a recommendation with evidence) |
+| ADR | The decision needed, the options known so far, the unknowns and requirements it relates to, and when it's needed by |
+| Chore | Why it's needed, what "done" looks like, and the evidence that will show it |
+| Bug | Steps to reproduce (with a seeded scenario), expected and actual behaviour, the requirement or acceptance criterion it breaks, and the failing test to write first |
+
 ## Definition of Done
 
 - Every acceptance criterion, in **every** section, is met and has evidence.
@@ -240,8 +260,11 @@ New findings at medium severity or above fail the build. Exceptions are recorded
 
 ## Branching and commits
 
-- Trunk-based: a short-lived branch per slice, a pull request into a protected `main`, squash merge.
+- Trunk-based: a short-lived branch per slice, a pull request into a protected `main`, merged with a **merge commit** (squash and rebase merging are switched off).
+  The branch's commits stay in the history, including the red-then-green commits that show [test-driven development](#test-driven-development).
+  The merge commit takes the pull request's title and description. Branches are deleted after merging.
 - [Conventional Commits](https://www.conventionalcommits.org/) for commit messages and pull request titles, for example `feat(sources): add tracked organisation admin`.
+- Repository settings and the `main` ruleset aren't stored in the code. Changes to them are recorded in an issue with before and after values (#1).
 - Each commit includes the Copilot co-author trailer when Copilot helped write it.
 
 ## Test-driven development
@@ -257,6 +280,8 @@ New findings at medium severity or above fail the build. Exceptions are recorded
 - **Implementing well-refined slices**: use a lighter model, guided by `.github/copilot-instructions.md` and `AGENTS.md`.
   These files hold the conventions (module rules, TDD, acceptance-criteria sections, test data, evidence, frontend, security) so that quality doesn't depend on the model.
 - Every AI-written change goes through the same Definition of Done. If a lighter model struggles with a slice, it needs refining further or should go back to a higher-capability model.
+- The Project's **Model tier** field records which kind of model an issue needs. `High-capability`: epics, spikes, ADRs, refining acceptance criteria,
+  security-sensitive design, and setting up the solution and its conventions for the first time. `Lighter`: Ready stories, chores and bugs that follow an established pattern.
 
 ## Architecture decisions and documentation
 
