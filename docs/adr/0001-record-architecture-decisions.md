@@ -6,7 +6,7 @@ Status: Accepted
 ## Related decisions
 
 - Supersedes / Superseded by: -
-- Amends / Amended by: Amended by [0013](0013-single-source-of-truth.md) (the index and relationship summaries are generated)
+- Amends / Amended by: Amended by [0013](0013-single-source-of-truth.md) (the index and relationship summaries are generated, and the docs checker runs on every pull request, not only those that touch `docs/`)
 - Depends on / Required by: - (this ADR sets up the process that all other ADRs follow)
 - Complements: [0012](0012-verification-checks-and-drift-detection.md) (ADR enforcement is one use of the checks)
 - Related: -

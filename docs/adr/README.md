@@ -71,7 +71,7 @@ Relationships are recorded in each ADR's *Related decisions* section (the source
 | [0008](0008-snapshots-provenance-and-checks.md) | Raw snapshots, observations with their sources, and versioned checks | Proposed |
 | [0009](0009-local-first-hosting.md) | Run locally until ready for deployment | Accepted |
 | [0010](0010-unconfigured-integrations-fall-back-safely.md) | Unconfigured integrations fall back safely: faked, recorded or disabled | Accepted |
-| [0011](0011-first-run-bootstrap.md) | First-run bootstrap: the first user becomes an administrator | Proposed (U25) |
+| [0011](0011-first-run-bootstrap.md) | First-run bootstrap: the first user becomes an administrator | Accepted (protections outside `LocalDevelopment` open, U25) |
 | [0012](0012-verification-checks-and-drift-detection.md) | Verification checks and drift detection, applied to ourselves first | Accepted |
 | [0013](0013-single-source-of-truth.md) | Single source of truth: one home for each fact; link or generate, never copy | Accepted |
 | [0014](0014-credential-less-by-default.md) | Credential-less by default: workload identity and federation before secrets | Accepted |
