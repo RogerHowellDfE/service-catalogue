@@ -47,8 +47,8 @@ These come from the "Storing source code" page. They have two uses:
 | Branch protection or rulesets on the default branch (an approval, dismissing stale approvals, code owners review, approving the most recent push, resolving conversations, status checks) | Partly. See U19: a single developer can't approve their own pull requests | Yes (API, with the right permissions) |
 | Clear name | ✔ `service-catalogue` | Partly (heuristics) |
 | `LICENCE` or `LICENCE.md` (MIT, Crown Copyright) | ✔ `LICENCE.md` | Yes |
-| `CONTRIBUTING.md` | M0 | Yes |
-| `CODEOWNERS` (teams preferred) | M0 | Yes |
+| `CONTRIBUTING.md` | ✔ | Yes |
+| `CODEOWNERS` (teams preferred) | ✔ an individual for now (U19) | Yes |
 | Topics for ownership, team, product type, production or prototype | M0 | Yes (needs an agreed set of topics; see U5) |
 | Software composition analysis (Dependabot) | M0 | Yes (`dependabot.yml`) |
 | SAST (CodeQL or Semgrep; [DfE SAST reusable workflow](https://github.com/DFE-Digital/github-actions/tree/master/sast-reusable-workflow)) | M0 | Yes (workflow inspection) |
