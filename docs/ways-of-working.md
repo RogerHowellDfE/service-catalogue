@@ -159,6 +159,8 @@ For each criterion in sections 1-8, the evidence that will prove it (see [Eviden
 - Only fake or generated data is used in tests, seeds, recordings and screenshots.
 - Documents, ADRs and the threat model updated if our understanding changed.
 - Reviewed. The Copilot code-review agent runs as a minimum, with the adversarial cases explicitly reviewed.
+- Anything left over (follow-ups, observations, deferred review comments) is recorded as an issue on the board, even if only a stub,
+  and linked from the pull request, before the pull request merges or the issue closes.
 
 ## Test data
 
@@ -262,6 +264,7 @@ New findings at medium severity or above fail the build. Exceptions are recorded
 ## Branching and commits
 
 - Trunk-based: a short-lived branch per slice, a pull request into a protected `main`, merged with a **merge commit** (squash and rebase merging are switched off).
+  Prefer small, self-contained pull requests; one issue can be delivered by several. Some bootstrapping work has to touch many files at once, but otherwise avoid large pull requests.
   The branch's commits stay in the history, including the red-then-green commits that show [test-driven development](#test-driven-development).
   The merge commit takes the pull request's title and description. Branches are deleted after merging.
 - [Conventional Commits](https://www.conventionalcommits.org/) for commit messages and pull request titles, for example `feat(sources): add tracked organisation admin`.
