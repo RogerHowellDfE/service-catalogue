@@ -11,7 +11,7 @@ public class SharedKernelServiceCollectionExtensionsTests
     {
         using var provider = new ServiceCollection().AddSharedKernel().BuildServiceProvider();
 
-            Assert.Same(TimeProvider.System, provider.GetService<TimeProvider>());
+        Assert.Same(TimeProvider.System, provider.GetService<TimeProvider>());
     }
 
     [Fact]
