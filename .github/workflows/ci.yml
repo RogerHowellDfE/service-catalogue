@@ -14,8 +14,6 @@ jobs:
     name: build-and-test
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    env:
-      TEST_RESULTS: ${{ runner.temp }}/test-results
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -24,12 +22,12 @@ jobs:
         with:
           global-json-file: global.json
       - run: dotnet build
-      - run: dotnet test --no-build --report-xunit-trx --results-directory "$TEST_RESULTS"
+      - run: dotnet test --no-build --report-xunit-trx --results-directory "$RUNNER_TEMP/test-results"
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: test-results
-          path: ${{ env.TEST_RESULTS }}
+          path: ${{ runner.temp }}/test-results
           if-no-files-found: warn
 
   format:
