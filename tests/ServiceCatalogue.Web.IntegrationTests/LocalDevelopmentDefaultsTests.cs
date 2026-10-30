@@ -60,7 +60,9 @@ public class LocalDevelopmentDefaultsTests
             services.AddSingleton<SingletonCapturingScoped>();
         });
 
-        Assert.ThrowsAny<Exception>(() => factory.CreateClient());
+        var exception = Assert.ThrowsAny<Exception>(() => factory.CreateClient());
+
+        Assert.Contains(nameof(SingletonCapturingScoped), exception.ToString(), StringComparison.Ordinal);
     }
 
     private sealed class ScopedDependency;
