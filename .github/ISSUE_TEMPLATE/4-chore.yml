@@ -1,0 +1,31 @@
+name: Chore
+description: Tooling, CI, configuration or other work with no direct user-facing behaviour.
+title: "chore: "
+labels: ["type:chore"]
+projects: ["RogerHowellDfE/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow the [Definition of Ready (other issue types)](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#definition-of-ready-other-issue-types).
+        Use fake data only. Never paste secrets, tokens, real personal data or unredacted logs.
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it's needed
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: What "done" looks like
+      description: Include unhappy paths, adversarial cases and failure modes where they apply, or "N/A" with a reason.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: "The before and after evidence that will show it's done. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#evidence)"
+    validations:
+      required: true

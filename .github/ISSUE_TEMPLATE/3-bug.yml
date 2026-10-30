@@ -1,0 +1,39 @@
+name: Bug
+description: Something doesn't behave as a requirement or acceptance criterion says. Not for security vulnerabilities.
+title: "fix: "
+labels: ["type:bug"]
+projects: ["RogerHowellDfE/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow the [Definition of Ready (other issue types)](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#definition-of-ready-other-issue-types).
+        **Security vulnerabilities go through [private reporting](https://github.com/RogerHowellDfE/service-catalogue/security/policy), not here.**
+        Use fake data only. Never paste secrets, tokens, real personal data or unredacted logs; describe the relevant lines instead.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the seeded scenario, and any unusual but valid input involved (emoji, Welsh characters, smart quotes, very long values).
+    validations:
+      required: true
+  - type: textarea
+    id: expected-actual
+    attributes:
+      label: Expected and actual behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: broken
+    attributes:
+      label: Requirement or acceptance criterion broken
+      description: The NFR, capability or acceptance criterion this breaks.
+    validations:
+      required: true
+  - type: textarea
+    id: failing-test
+    attributes:
+      label: Failing test to write first
+      description: The test that will go red before the fix and green after.
+    validations:
+      required: true

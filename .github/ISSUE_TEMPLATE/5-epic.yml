@@ -1,0 +1,25 @@
+name: Epic
+description: An outcome delivered through several sub-issues.
+title: "Epic: "
+labels: ["type:epic"]
+projects: ["RogerHowellDfE/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow the [Definition of Ready (other issue types)](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#definition-of-ready-other-issue-types).
+        Set the milestone, then add the slices as sub-issues. They can be refined later.
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What is true when this epic is done.
+    validations:
+      required: true
+  - type: textarea
+    id: needs
+    attributes:
+      label: Needs and capabilities
+      description: The needs (N-refs) and capabilities (C-refs) it serves.
+    validations:
+      required: true

@@ -1,0 +1,32 @@
+name: Spike
+description: A time-boxed investigation that answers a question, usually an open unknown.
+title: "spike: "
+labels: ["type:spike"]
+projects: ["RogerHowellDfE/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow the [Definition of Ready (other issue types)](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#definition-of-ready-other-issue-types).
+        Use fake data only. Never paste secrets, tokens, real personal data or unredacted logs.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What we need to find out, and the unknown it answers (U-ref in docs/unknowns.md).
+    validations:
+      required: true
+  - type: input
+    id: timebox
+    attributes:
+      label: Time box
+      placeholder: e.g. 1 day
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output
+      description: An ADR, an updated unknown, or a recommendation with evidence. Include unusual, adversarial and failure cases the options must handle.
+    validations:
+      required: true
