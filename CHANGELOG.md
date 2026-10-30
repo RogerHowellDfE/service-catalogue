@@ -12,3 +12,4 @@ and [ways of working: changelog and versions](docs/ways-of-working.md#changelog-
 - Architecture decision records 0001 to 0015, including first-run fallbacks, verification and drift detection, a single source of truth for docs, credential-less access, and date-based versions (before the backlog existed, so no issue)
 - The service runs locally with one command (`dotnet aspire run`), with no secrets: Web, Worker and PostgreSQL, a placeholder home page, and health checks that report the database (#11)
 - Architecture decision record 0016: one obvious way to do each thing, with Program.cs as a flat list and environment behaviour decided by the extension it calls (#11)
+- Continuous integration: every pull request and push to `main` is built, tested and format-checked, with test results kept and NuGet package versions locked (#13, #44)
