@@ -17,6 +17,7 @@ Each rule below is a short reminder. **The canonical rule is at the linked ID; f
   for any [section](docs/ways-of-working.md#acceptance-criteria) (main path, unhappy paths, unusual but valid input, adversarial cases, failure modes), stop and ask.
 - If the work needs a decision that no ADR covers, or contradicts an accepted ADR, stop and ask. Don't make the decision silently.
 - If something is unclear, check [unknowns](docs/unknowns.md). Don't resolve an open unknown by assumption.
+- Move the issue to *In progress* on the [board](docs/ways-of-working.md#backlog-structure-github) before starting, and to *In review* when the pull request opens.
 
 ## Rules
 

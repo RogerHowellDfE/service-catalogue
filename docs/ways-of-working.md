@@ -9,6 +9,7 @@
 ## Backlog structure (GitHub)
 
 - **GitHub Project** (v2) for the whole product. Columns: *Backlog -> Ready -> In progress -> In review -> Done*. The order within a column is the priority.
+  Whoever starts an issue moves it to *In progress* before starting, and to *In review* when its pull request opens. The board shows what is actually happening.
   Two custom fields, each kept because it changes what someone does:
 
   | Field | Values |
