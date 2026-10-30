@@ -1,9 +1,14 @@
 using System.Net;
+using ServiceCatalogue.Testing;
 
 namespace ServiceCatalogue.Web.IntegrationTests;
 
 public class SkeletonTests
 {
+    private const string HealthEndpointsOnlyInDevEquivalent =
+        "Health endpoints are mapped only in LocalDevelopment and Development, and report the database. " +
+        "See docs/architecture.md#environment-dependent-behaviour and NFR-D4 in docs/requirements.md.";
+
     [Fact]
     public async Task Home_page_renders_the_placeholder()
     {
@@ -27,7 +32,7 @@ public class SkeletonTests
 
         var response = await client.GetAsync(new Uri("/alive", UriKind.Relative), TestContext.Current.CancellationToken);
 
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Signpost.Check(HealthEndpointsOnlyInDevEquivalent, () => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
     }
 
     [Fact]
@@ -38,7 +43,7 @@ public class SkeletonTests
 
         var response = await client.GetAsync(new Uri("/health", UriKind.Relative), TestContext.Current.CancellationToken);
 
-        Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode);
+        Signpost.Check(HealthEndpointsOnlyInDevEquivalent, () => Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode));
     }
 
     [Theory]
@@ -51,6 +56,6 @@ public class SkeletonTests
 
         var response = await client.GetAsync(new Uri(path, UriKind.Relative), TestContext.Current.CancellationToken);
 
-        Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        Signpost.Check(HealthEndpointsOnlyInDevEquivalent, () => Assert.Equal(HttpStatusCode.NotFound, response.StatusCode));
     }
 }
