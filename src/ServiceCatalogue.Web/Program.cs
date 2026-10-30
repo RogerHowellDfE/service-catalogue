@@ -2,6 +2,7 @@ using ServiceCatalogue.Audit;
 using ServiceCatalogue.Catalogue;
 using ServiceCatalogue.Identity;
 using ServiceCatalogue.Insights;
+using ServiceCatalogue.ServiceDefaults;
 using ServiceCatalogue.SharedKernel;
 using ServiceCatalogue.Sources;
 using ServiceCatalogue.Web;
