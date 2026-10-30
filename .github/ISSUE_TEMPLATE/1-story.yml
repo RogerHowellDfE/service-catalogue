@@ -1,0 +1,89 @@
+name: Story
+description: A slice of user-visible value. Ready when every acceptance criteria section is filled in or marked N/A with a reason.
+title: "feat: "
+labels: ["type:story"]
+projects: ["RogerHowellDfE/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow the [Definition of Ready (story)](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#definition-of-ready-story).
+        Each section links to its guidance. If a section doesn't apply, write "N/A" and a short reason; don't leave it blank.
+        Use fake data only (Fake Francis, Test Teri, example.com). Never paste secrets, tokens, real personal data or unredacted logs.
+  - type: textarea
+    id: need
+    attributes:
+      label: Need and context
+      description: The need (N-ref) and/or capability (C-ref) this serves, who it's for and why now.
+    validations:
+      required: true
+  - type: textarea
+    id: ac-main
+    attributes:
+      label: 1. Main path
+      description: "Given/When/Then for the intended behaviour. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#1-main-path-happy-path)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-unhappy
+    attributes:
+      label: 2. Unhappy paths
+      description: "Validation, empty and large states, missing items, permissions, double submits, no JavaScript. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#2-unhappy-paths)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-unusual
+    attributes:
+      label: 3. Unusual but valid input
+      description: "Emoji, Welsh characters, smart quotes, ellipses, very long values: accepted, kept, shown and searchable. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#3-unusual-but-valid-input)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-adversarial
+    attributes:
+      label: 4. Adversarial and abuse cases
+      description: "Authorisation bypass, injection, hostile source data, CSRF, resource abuse, data leakage, secrets. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#4-adversarial-and-abuse-cases)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-failure
+    attributes:
+      label: 5. Failure modes
+      description: "Dependency down or slow, rate limits, partial failure, bad data, retries, detection, recovery. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#5-failure-modes)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-nfr
+    attributes:
+      label: 6. Non-functional
+      description: "Accessibility, performance targets, security headers, audit, telemetry. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#6-non-functional-criteria-where-relevant)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-data
+    attributes:
+      label: 7. Test data scenarios
+      description: "The seeded scenarios used to test and demonstrate this, and any new scenario it needs. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#7-test-data-scenarios)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-standards
+    attributes:
+      label: 8. Standards and guidance
+      description: "SS, TCoP, SbD, DfE-TG, WCAG or ASVS references, and any departure with its ADR. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#8-standards-and-guidance)"
+    validations:
+      required: true
+  - type: textarea
+    id: ac-evidence
+    attributes:
+      label: 9. Evidence expected
+      description: "For each criterion above, the before and after evidence that will prove it. [Guidance](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#9-evidence-expected)"
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies, unknowns and threat model
+      description: Blocking issues, open unknowns (U-refs), and whether this adds a trust boundary or data classification (if so, the threat model update is part of this story).
+    validations:
+      required: true

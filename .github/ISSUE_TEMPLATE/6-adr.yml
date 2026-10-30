@@ -1,0 +1,38 @@
+name: Architecture decision
+description: A decision that needs an ADR, or a change to an accepted one.
+title: "docs(adr): "
+labels: ["type:adr"]
+projects: ["RogerHowellDfE/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow the [Definition of Ready (other issue types)](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#definition-of-ready-other-issue-types)
+        and the [ADR rules](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/adr/README.md).
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision needed
+      description: The question to decide, and any accepted ADR it would supersede or amend.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options known so far
+    validations:
+      required: true
+  - type: textarea
+    id: related
+    attributes:
+      label: Related unknowns, requirements and standards
+      description: U-refs, NFR or capability IDs, and standards (SS, TCoP, SbD, DfE-TG, WCAG, ASVS).
+    validations:
+      required: true
+  - type: input
+    id: needed-by
+    attributes:
+      label: Needed by
+      description: The issue or milestone that's blocked until this is decided.
+    validations:
+      required: true
