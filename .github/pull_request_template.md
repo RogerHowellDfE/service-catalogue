@@ -25,3 +25,4 @@
 - [ ] Changed a fact? Changed in its canonical home only, linked elsewhere (ADR-0013)
 - [ ] Changed a check's logic? Its version is bumped (ADR-0008)
 - [ ] `CHANGELOG.md` updated under Unreleased, or the `no-changelog` label applied (ADR-0015)
+- [ ] Anything left over is recorded as an issue (a stub is fine) and linked here ([Definition of Done](https://github.com/RogerHowellDfE/service-catalogue/blob/main/docs/ways-of-working.md#definition-of-done))
