@@ -3,6 +3,8 @@ using Microsoft.Extensions.Hosting;
 
 namespace ServiceCatalogue.SharedKernel.UnitTests;
 
+[Trait("Issue", "11")]
+[Trait("Requirement", "NFR-D4")]
 public class HostEnvironmentExtensionsTests
 {
     [Theory]

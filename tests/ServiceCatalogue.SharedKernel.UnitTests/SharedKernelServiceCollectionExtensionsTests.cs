@@ -2,6 +2,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ServiceCatalogue.SharedKernel.UnitTests;
 
+[Trait("Issue", "11")]
+[Trait("Requirement", "NFR-V4")]
 public class SharedKernelServiceCollectionExtensionsTests
 {
     [Fact]

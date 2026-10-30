@@ -1,14 +1,10 @@
 using System.Net;
-using ServiceCatalogue.Testing;
 
 namespace ServiceCatalogue.Web.IntegrationTests;
 
+[Trait("Issue", "11")]
 public class SkeletonTests
 {
-    private const string HealthEndpointsOnlyInDevEquivalent =
-        "Health endpoints are mapped only in LocalDevelopment and Development, and report the database. " +
-        "See docs/architecture.md#environment-dependent-behaviour and NFR-D4 in docs/requirements.md.";
-
     [Fact]
     public async Task Home_page_renders_the_placeholder()
     {
@@ -21,6 +17,7 @@ public class SkeletonTests
         Assert.Contains("<h1>Service Catalogue</h1>", await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken), StringComparison.Ordinal);
     }
 
+    [Trait("Requirement", "NFR-D4")]
     [Theory]
     [InlineData("LocalDevelopment")]
     [InlineData("localdevelopment")]
@@ -32,9 +29,10 @@ public class SkeletonTests
 
         var response = await client.GetAsync(new Uri("/alive", UriKind.Relative), TestContext.Current.CancellationToken);
 
-        Signpost.Check(HealthEndpointsOnlyInDevEquivalent, () => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 
+    [Trait("Requirement", "NFR-D4")]
     [Fact]
     public async Task Health_endpoint_reports_unhealthy_when_the_database_is_unreachable()
     {
@@ -43,9 +41,10 @@ public class SkeletonTests
 
         var response = await client.GetAsync(new Uri("/health", UriKind.Relative), TestContext.Current.CancellationToken);
 
-        Signpost.Check(HealthEndpointsOnlyInDevEquivalent, () => Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode));
+        Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode);
     }
 
+    [Trait("Requirement", "NFR-D4")]
     [Theory]
     [InlineData("/alive")]
     [InlineData("/health")]
@@ -56,6 +55,6 @@ public class SkeletonTests
 
         var response = await client.GetAsync(new Uri(path, UriKind.Relative), TestContext.Current.CancellationToken);
 
-        Signpost.Check(HealthEndpointsOnlyInDevEquivalent, () => Assert.Equal(HttpStatusCode.NotFound, response.StatusCode));
+        Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 }

@@ -2,20 +2,14 @@ using System.Net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.DependencyInjection;
-using ServiceCatalogue.Testing;
 
 namespace ServiceCatalogue.Web.IntegrationTests;
 
+[Trait("Decision", "ADR-0010")]
+[Trait("Issue", "11")]
 public class LocalDevelopmentDefaultsTests
 {
-    private const string DevelopmentDefaults =
-        "Defaults ASP.NET Core only switches on in Development are switched on in LocalDevelopment too, and never in deployed environments. " +
-        "See docs/adr/0010-unconfigured-integrations-fall-back-safely.md (Decision) and NFR-D4 in docs/requirements.md.";
-
-    private const string LocalConfigurationOnTheAppHost =
-        "Local configuration has one home, the AppHost's user-secrets; Web and Worker do not load user-secrets. " +
-        "See docs/adr/0010-unconfigured-integrations-fall-back-safely.md (Decision) and README.md (Getting started).";
-
+    [Trait("Requirement", "NFR-D4")]
     [Fact]
     public async Task Developer_exception_page_shows_the_exception_in_LocalDevelopment()
     {
@@ -25,13 +19,11 @@ public class LocalDevelopmentDefaultsTests
         var response = await client.GetAsync(new Uri(WebFactory.ThrowingPath, UriKind.Relative), TestContext.Current.CancellationToken);
         var body = await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
 
-        Signpost.Check(DevelopmentDefaults, () =>
-        {
-            Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
-            Assert.Contains(WebFactory.FakeFailureMessage, body, StringComparison.Ordinal);
-        });
+        Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
+        Assert.Contains(WebFactory.FakeFailureMessage, body, StringComparison.Ordinal);
     }
 
+    [Trait("Requirement", "NFR-D4")]
     [Fact]
     public async Task Production_shows_the_error_page_without_exception_details()
     {
@@ -41,12 +33,9 @@ public class LocalDevelopmentDefaultsTests
         var response = await client.GetAsync(new Uri(WebFactory.ThrowingPath, UriKind.Relative), TestContext.Current.CancellationToken);
         var body = await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
 
-        Signpost.Check(DevelopmentDefaults, () =>
-        {
-            Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
-            Assert.DoesNotContain(WebFactory.FakeFailureMessage, body, StringComparison.Ordinal);
-            Assert.Contains("Sorry, there is a problem with the service", body, StringComparison.Ordinal);
-        });
+        Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
+        Assert.DoesNotContain(WebFactory.FakeFailureMessage, body, StringComparison.Ordinal);
+        Assert.Contains("Sorry, there is a problem with the service", body, StringComparison.Ordinal);
     }
 
     [Theory]
@@ -58,10 +47,10 @@ public class LocalDevelopmentDefaultsTests
         await using var factory = new WebFactory(environment);
         var configuration = (IConfigurationRoot)factory.Services.GetRequiredService<IConfiguration>();
 
-        Signpost.Check(LocalConfigurationOnTheAppHost, () =>
-            Assert.DoesNotContain(configuration.Providers, p => p is JsonConfigurationProvider { Source.Path: "secrets.json" }));
+        Assert.DoesNotContain(configuration.Providers, p => p is JsonConfigurationProvider { Source.Path: "secrets.json" });
     }
 
+    [Trait("Requirement", "NFR-D4")]
     [Fact]
     public async Task Service_registrations_are_validated_at_startup_in_LocalDevelopment()
     {
@@ -71,8 +60,7 @@ public class LocalDevelopmentDefaultsTests
             services.AddSingleton<SingletonCapturingScoped>();
         });
 
-        Signpost.Check(DevelopmentDefaults, () =>
-            Assert.ThrowsAny<Exception>(() => factory.CreateClient()));
+        Assert.ThrowsAny<Exception>(() => factory.CreateClient());
     }
 
     private sealed class ScopedDependency;
