@@ -8,9 +8,35 @@ The aim is to support teams, not to police them. See the [vision](docs/vision.md
 
 ## Status
 
-Planning. There is no runnable application yet. The first milestone (M0 in the [roadmap](docs/roadmap.md)) delivers a walking skeleton
-that runs locally with seeded fake data and no secrets ([NFR-D1](docs/requirements.md#developer-and-first-run-experience)).
-Getting-started instructions will be added here, generated from the code, when that exists.
+Walking skeleton (M0 in the [roadmap](docs/roadmap.md)). Web, Worker and PostgreSQL run locally with no secrets ([NFR-D1](docs/requirements.md#developer-and-first-run-experience)).
+There are no features yet.
+
+## Getting started
+
+You need the [.NET 10 SDK](https://dotnet.microsoft.com/download) and a container runtime ([Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman](https://podman.io/)) running.
+
+```shell
+git clone https://github.com/RogerHowellDfE/service-catalogue.git
+cd service-catalogue
+dotnet tool restore
+dotnet aspire run
+```
+
+Open the dashboard link printed in the terminal. It lists each resource and its address; select the `web` endpoint to open the site.
+Nothing needs configuring: anything not set up falls back to a fake or is turned off, and says so.
+
+If resources stay "Waiting" or show as unhealthy, the terminal may not say why; check the dashboard for details.
+
+### Developing
+
+```shell
+dotnet build
+dotnet test
+dotnet format --verify-no-changes --severity info
+```
+
+To fix formatting, run the last command without `--verify-no-changes`.
+To use a real integration instead of its fake, or for anything about deployed environments, see [local configuration](docs/architecture.md#local-configuration).
 
 ## Documentation
 

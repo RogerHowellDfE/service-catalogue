@@ -9,7 +9,7 @@ Each rule below is a short reminder. **The canonical rule is at the linked ID; f
 
 - What we're building and why: [vision](docs/vision.md). Where each kind of fact lives: [docs/README.md](docs/README.md#where-things-live).
 - Current design: [architecture](docs/architecture.md). Decisions: [ADRs](docs/adr/README.md). Open questions: [unknowns](docs/unknowns.md).
-- Status: planning. There is no solution yet. M0 in the [roadmap](docs/roadmap.md) creates it. Build and test commands will be added here when it exists.
+- Status: walking skeleton (M0 in the [roadmap](docs/roadmap.md)). Run, build, test and format commands: [README](README.md#getting-started).
 
 ## Before writing code
 
@@ -17,12 +17,15 @@ Each rule below is a short reminder. **The canonical rule is at the linked ID; f
   for any [section](docs/ways-of-working.md#acceptance-criteria) (main path, unhappy paths, unusual but valid input, adversarial cases, failure modes), stop and ask.
 - If the work needs a decision that no ADR covers, or contradicts an accepted ADR, stop and ask. Don't make the decision silently.
 - If something is unclear, check [unknowns](docs/unknowns.md). Don't resolve an open unknown by assumption.
+- Move the issue to *In progress* on the [board](docs/ways-of-working.md#backlog-structure-github) before starting, and to *In review* when the pull request opens.
 
 ## Rules
 
 Architecture and stack
 - Modular monolith: modules only reference each other's Contracts ([ADR-0002](docs/adr/0002-modular-monolith.md)).
 - .NET 10 and Aspire; packages through Central Package Management ([ADR-0003](docs/adr/0003-dotnet-and-aspire.md)).
+- One obvious way: follow the existing pattern before adding another. Program.cs is a flat list with no environment checks; the extension it calls decides,
+  and its name and summary say how ([ADR-0016](docs/adr/0016-one-obvious-way.md)).
 - Server-rendered GOV.UK and DfE frontend. Every journey works without JavaScript ([ADR-0005](docs/adr/0005-server-rendered-ui-govuk-dfe-frontend.md), NFR-A1, NFR-A2).
 
 Security
@@ -38,6 +41,7 @@ Configuration and environments
 
 Tests and data
 - Test first. A test written afterwards must be shown failing without the change (NFR-Q1, [TDD](docs/ways-of-working.md#test-driven-development)).
+- Tag tests with their sources (`[Trait("Issue", "11")]`, `Decision`, `Requirement`). Before changing a failing test, read those sources ([tracing tests](docs/ways-of-working.md#tracing-tests-to-their-source)).
 - Fake data only, with obviously fake identities (*Fake Francis*, *Test Teri*) and reserved domains such as `example.com`. Use the named seeding scenarios (NFR-Q7, [test data](docs/ways-of-working.md#test-data)).
 - Cover unusual but valid text (emoji, Welsh characters, smart quotes) end to end (NFR-Q8).
 - Never call live external APIs in CI tests.

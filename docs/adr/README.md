@@ -7,6 +7,8 @@ Status values: **Proposed**, **Accepted**, **Superseded by ADR-NNNN**, **Depreca
 ## Rules
 
 - Once an ADR is accepted, it isn't edited, with two exceptions: typos and links, and **adding back-links** under *Related decisions* or updating the *Status* line.
+- Exception while the walking skeleton is built (until M0 closes): a foundational ADR may be refined in place when building it reveals a better detail,
+  so that one decision isn't spread across several documents. The pull request says what changed and why.
 - If a decision changes, write a new ADR that **supersedes** the old one. In the same pull request, update the old ADR's status to `Superseded by NNNN` and add the back-link.
 - **Links go both ways.** If ADR A says it depends on or complements ADR B, ADR B must list A too.
 - Link to unknowns (`U-n`), requirements (`NFR-*`, `C-n`) and needs (`N-n`) where relevant, so the reasons for a decision can be traced.
@@ -76,6 +78,7 @@ Relationships are recorded in each ADR's *Related decisions* section (the source
 | [0013](0013-single-source-of-truth.md) | Single source of truth: one home for each fact; link or generate, never copy | Accepted |
 | [0014](0014-credential-less-by-default.md) | Credential-less by default: workload identity and federation before secrets | Accepted |
 | [0015](0015-date-based-versions-and-changelog.md) | Date-based versions and a human-readable changelog | Accepted |
+| [0016](0016-one-obvious-way.md) | One obvious way: few patterns, explicit and discoverable | Accepted |
 <!-- generated:end -->
 
 ## Template

@@ -8,7 +8,7 @@ Status: Accepted
 - Supersedes / Superseded by: -
 - Amends / Amended by: -
 - Depends on / Required by: -
-- Complements: [0001](0001-record-architecture-decisions.md) (every ADR's Enforcement section), [0008](0008-snapshots-provenance-and-checks.md) (the same checks engine runs on snapshots), [0013](0013-single-source-of-truth.md) (the docs checker is one kind of check)
+- Complements: [0001](0001-record-architecture-decisions.md) (every ADR's Enforcement section), [0008](0008-snapshots-provenance-and-checks.md) (the same checks engine runs on snapshots), [0013](0013-single-source-of-truth.md) (the docs checker is one kind of check), [0016](0016-one-obvious-way.md) (conventions come with checks)
 - Related: [0002](0002-modular-monolith.md) (architecture tests are one kind of check)
 - Unknowns, requirements and needs: NFR-V1 to V4, C6, U7
 

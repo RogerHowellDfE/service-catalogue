@@ -1,0 +1,13 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Sorry, there is a problem with the service";
+}
+
+<h1>Sorry, there is a problem with the service</h1>
+<p>Try again later.</p>
+
+@if (Model.ShowRequestId)
+{
+    <p>Request ID: <code>@Model.RequestId</code></p>
+}

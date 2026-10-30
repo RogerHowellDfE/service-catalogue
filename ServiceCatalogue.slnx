@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ServiceCatalogue.AppHost/ServiceCatalogue.AppHost.csproj" />
+    <Project Path="src/ServiceCatalogue.ServiceDefaults/ServiceCatalogue.ServiceDefaults.csproj" />
+    <Project Path="src/ServiceCatalogue.SharedKernel/ServiceCatalogue.SharedKernel.csproj" />
+    <Project Path="src/ServiceCatalogue.Web/ServiceCatalogue.Web.csproj" />
+    <Project Path="src/ServiceCatalogue.Worker/ServiceCatalogue.Worker.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Audit/">
+    <Project Path="src/Modules/Audit/ServiceCatalogue.Audit.Contracts/ServiceCatalogue.Audit.Contracts.csproj" />
+    <Project Path="src/Modules/Audit/ServiceCatalogue.Audit/ServiceCatalogue.Audit.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Catalogue/">
+    <Project Path="src/Modules/Catalogue/ServiceCatalogue.Catalogue.Contracts/ServiceCatalogue.Catalogue.Contracts.csproj" />
+    <Project Path="src/Modules/Catalogue/ServiceCatalogue.Catalogue/ServiceCatalogue.Catalogue.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Identity/">
+    <Project Path="src/Modules/Identity/ServiceCatalogue.Identity.Contracts/ServiceCatalogue.Identity.Contracts.csproj" />
+    <Project Path="src/Modules/Identity/ServiceCatalogue.Identity/ServiceCatalogue.Identity.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Insights/">
+    <Project Path="src/Modules/Insights/ServiceCatalogue.Insights.Contracts/ServiceCatalogue.Insights.Contracts.csproj" />
+    <Project Path="src/Modules/Insights/ServiceCatalogue.Insights/ServiceCatalogue.Insights.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Sources/">
+    <Project Path="src/Modules/Sources/ServiceCatalogue.Sources.Contracts/ServiceCatalogue.Sources.Contracts.csproj" />
+    <Project Path="src/Modules/Sources/ServiceCatalogue.Sources/ServiceCatalogue.Sources.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ServiceCatalogue.SharedKernel.UnitTests/ServiceCatalogue.SharedKernel.UnitTests.csproj" />
+    <Project Path="tests/ServiceCatalogue.Web.IntegrationTests/ServiceCatalogue.Web.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

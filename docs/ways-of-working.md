@@ -9,6 +9,7 @@
 ## Backlog structure (GitHub)
 
 - **GitHub Project** (v2) for the whole product. Columns: *Backlog -> Ready -> In progress -> In review -> Done*. The order within a column is the priority.
+  Whoever starts an issue moves it to *In progress* before starting, and to *In review* when its pull request opens. The board shows what is actually happening.
   Two custom fields, each kept because it changes what someone does:
 
   | Field | Values |
@@ -273,6 +274,16 @@ New findings at medium severity or above fail the build. Exceptions are recorded
   against the code before the change, or when the change is temporarily reverted.
 - Test layers: unit -> integration (Testcontainers PostgreSQL, fake or fault-injecting GitHub source) -> browser (Playwright, with video and trace) -> architecture -> DAST (ZAP).
 - Never call live external APIs in CI tests.
+
+### Tracing tests to their source
+
+- Every test class has a trait for each current source of the behaviour it tests: `[Trait("Issue", "11")]`, `[Trait("Decision", "ADR-0010")]`,
+  `[Trait("Requirement", "NFR-D4")]`. Put a trait on a test method when it applies to that test only.
+- **Before changing a failing test, read its sources.** If the change contradicts them, the source changes first (or alongside), not just the test.
+- Traits list current sources only. When a decision is superseded or an issue's behaviour is replaced, swap the trait; git history keeps the old one.
+- Test names describe behaviour. Add a reference to the name (`..._issue14_ac3`) only where it really helps, for example a browser test that walks one acceptance criterion.
+- **Changed behaviour leaves a trail.** When a change contradicts an earlier issue's acceptance criteria, comment on the old issue linking to the new one,
+  and link back from the new issue, so either end leads to the other.
 
 ## AI-assisted delivery
 

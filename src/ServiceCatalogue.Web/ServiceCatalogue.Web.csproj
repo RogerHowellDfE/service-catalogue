@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceCatalogue.ServiceDefaults\ServiceCatalogue.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\ServiceCatalogue.SharedKernel\ServiceCatalogue.SharedKernel.csproj" />
+    <ProjectReference Include="..\Modules\Sources\ServiceCatalogue.Sources\ServiceCatalogue.Sources.csproj" />
+    <ProjectReference Include="..\Modules\Catalogue\ServiceCatalogue.Catalogue\ServiceCatalogue.Catalogue.csproj" />
+    <ProjectReference Include="..\Modules\Insights\ServiceCatalogue.Insights\ServiceCatalogue.Insights.csproj" />
+    <ProjectReference Include="..\Modules\Identity\ServiceCatalogue.Identity\ServiceCatalogue.Identity.csproj" />
+    <ProjectReference Include="..\Modules\Audit\ServiceCatalogue.Audit\ServiceCatalogue.Audit.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Npgsql" />
+  </ItemGroup>
+
+</Project>

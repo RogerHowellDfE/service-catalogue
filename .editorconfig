@@ -1,5 +1,7 @@
 # Base generated with `dotnet new editorconfig` (.NET SDK template), then edited:
 # the [*] section and the Windows script, Markdown, YAML and web asset sections were added.
+# Checked by dotnet format (commands: README.md, Developing). Every rule at suggestion or above is enforced;
+# set a rule to silent to stop enforcing it.
 
 root = true
 
@@ -49,14 +51,11 @@ indent_size = 2
 indent_size = 4
 tab_width = 4
 
-# New line preferences
-insert_final_newline = false
-
 #### .NET Coding Conventions ####
 [*.{cs,vb}]
 
 # Organize usings
-dotnet_separate_import_directive_groups = true
+dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = true
 file_header_template = unset
 
@@ -120,7 +119,7 @@ csharp_style_var_when_type_is_apparent = false:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_constructors = false:silent
 csharp_style_expression_bodied_indexers = true:silent
-csharp_style_expression_bodied_lambdas = true:suggestion
+csharp_style_expression_bodied_lambdas = when_on_single_line:suggestion
 csharp_style_expression_bodied_local_functions = false:silent
 csharp_style_expression_bodied_methods = false:silent
 csharp_style_expression_bodied_operators = false:silent
@@ -408,3 +407,7 @@ dotnet_naming_style.s_camelcase.required_suffix =
 dotnet_naming_style.s_camelcase.word_separator = 
 dotnet_naming_style.s_camelcase.capitalization = camel_case
 
+
+# Tests: underscore-separated names read as sentences
+[tests/**.cs]
+dotnet_diagnostic.CA1707.severity = none

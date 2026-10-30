@@ -74,7 +74,7 @@ See [standards and guidance](standards.md) for the full list and the abbreviatio
 
 ### Developer and first-run experience
 
-- **NFR-D1** **Ten-minute start**: `git clone` -> `dotnet build` -> `dotnet run` (the Aspire AppHost) gives a working, realistic-looking service
+- **NFR-D1** **Ten-minute start**: a fresh clone, following the README's [getting started](../README.md#getting-started), gives a working, realistic-looking service
   with seeded fake data, without configuring any secrets. **Aspire is fundamental to this**: it starts PostgreSQL, Web and Worker and connects them.
   Prerequisites are kept to a minimum and listed in the README: the .NET 10 SDK, a container runtime that Aspire supports (Docker Desktop or Podman, see R6),
   and Node only if it can't be avoided (see U24).

@@ -66,6 +66,29 @@ Because we keep the raw snapshots, we can reprocess history whenever we add new 
 
 The rules are NFR-D4 and [ADR-0010](adr/0010-unconfigured-integrations-fall-back-safely.md). Once the code exists, this table will be generated from it ([ADR-0013](adr/0013-single-source-of-truth.md)).
 
+### Environment-dependent behaviour
+
+Every behaviour that differs by environment. Program.cs has no environment checks; the extension named here decides ([ADR-0016](adr/0016-one-obvious-way.md)).
+
+| Behaviour | `LocalDevelopment` | `Development` | `Test`, `Production` | Decided in |
+|---|---|---|---|---|
+| Health endpoints `/health` (includes the database) and `/alive` | Mapped | Mapped | Not mapped | `ServiceDefaultsExtensions.MapDefaultEndpoints` |
+| Unhandled errors | Developer exception page | `/Error` page, HSTS | `/Error` page, HSTS | `ErrorPagesExtensions.UseErrorPages` (Web) |
+| Static web assets served from projects and packages (not yet published) | On | Off | Off | `StaticAssetsExtensions.AddStaticAssets` (Web) |
+| Service registrations validated at startup (scopes, missing dependencies) | On | Off | Off | `ServiceDefaultsExtensions.AddServiceDefaults` |
+
+### Local configuration
+
+Local configuration has one home: the AppHost's user-secrets. Web and Worker don't load user-secrets in any environment ([ADR-0010](adr/0010-unconfigured-integrations-fall-back-safely.md)).
+
+| Stage | Who | Where settings come from |
+|---|---|---|
+| Try it | Anyone: content designers, user researchers, demos | Nothing to set. Every integration falls back to a fake or is disabled, and says so |
+| Develop, with variants | Developers, for example a personal Entra tenant or a shared database | AppHost user-secrets. Each integration's opt-in command is declared in code (NFR-D7). Removing the secret undoes it |
+| Hosted | `Development`, `Test`, `Production` | Platform settings and Key Vault, read with managed identity ([ADR-0014](adr/0014-credential-less-by-default.md)). The same options classes; only the source differs |
+
+Running Web or Worker without the AppHost means passing settings as environment variables or command-line arguments.
+
 ### Integration modes
 
 Each integration is **Configured**, **Fake/Recording** or **Disabled** ([ADR-0010](adr/0010-unconfigured-integrations-fall-back-safely.md)). The current fallbacks are listed below. Later, this table is generated from the integration declarations in code.
@@ -138,7 +161,7 @@ src/
   ServiceCatalogue.AppHost/                 Aspire orchestration (local)
   ServiceCatalogue.ServiceDefaults/         OpenTelemetry, health checks, resilience
   ServiceCatalogue.Web/                     Razor UI host
-  ServiceCatalogue.Worker/                  Background jobs host
+  ServiceCatalogue.Worker/                  Background jobs host (a minimal web host, so it can expose health endpoints)
   ServiceCatalogue.SharedKernel/            Result, clock, IDs, environment helpers (IsLocalDevelopment/IsDevEquivalent)
   ServiceCatalogue.Checks/                  Checks engine and repository checks (shared by the CLI and Insights)
   ServiceCatalogue.Analyzers/               Custom Roslyn analysers and code fixes (+ tests)

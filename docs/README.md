@@ -28,6 +28,7 @@ Repetition that can't be avoided is **generated**. See [ADR-0013](adr/0013-singl
 | The current design: modules, data pipeline, environments and integration modes, solution layout | [architecture.md](architecture.md) | a section link |
 | What we'll deliver, in which order | [roadmap.md](roadmap.md) | `M1` (lists IDs; doesn't restate requirements) |
 | How we work: acceptance criteria, DoR and DoD, test data, evidence, scanning | [ways-of-working.md](ways-of-working.md) | a section link |
+| How to run, build, test and format the code | [README.md](../README.md#getting-started) | a section link |
 | External standards and DfE guidance | [standards.md](standards.md) | `SS 9`, `TCoP 6`, `DfE-TG: storing source code` |
 | Open questions and resolved ones | [unknowns.md](unknowns.md) | `U24`, `R6` |
 | Threats and mitigations | `security/threat-model.md` (created in M0) | a section link |
