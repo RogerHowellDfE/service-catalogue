@@ -1,5 +1,1 @@
 blank_issues_enabled: false
-contact_links:
-  - name: Report a security vulnerability
-    url: https://github.com/RogerHowellDfE/service-catalogue/security/policy
-    about: Please don't open a public issue. Follow SECURITY.md to report privately.
