@@ -39,7 +39,7 @@ dotnet format --verify-no-changes --severity info
 ```
 
 To fix formatting, run the last command without `--verify-no-changes`.
-Each project has a `packages.lock.json`. `dotnet build` and `dotnet restore` update them when a package changes; commit them with the change. CI restores with `dotnet restore --locked-mode`, which fails if a lock file is out of date.
+Each project has a `packages.lock.json`. `dotnet build` and `dotnet restore` update them when a package changes; commit them with the change. CI restores in locked mode (set in `Directory.Build.props` on GitHub Actions), so it fails if a lock file is out of date.
 To use a real integration instead of its fake, or for anything about deployed environments, see [local configuration](docs/architecture.md#local-configuration).
 
 ## Documentation
