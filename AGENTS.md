@@ -13,6 +13,7 @@ Each rule below is a short reminder. **The canonical rule is at the linked ID; f
 
 ## Before writing code
 
+- Take the issue at the top of *Ready* on the [board](docs/ways-of-working.md#backlog-structure-github): the board order is the plan. If there's a reason not to, say so and ask.
 - Work from an issue that meets the [Definition of Ready](docs/ways-of-working.md#definition-of-ready-story). If acceptance criteria are missing
   for any [section](docs/ways-of-working.md#acceptance-criteria) (main path, unhappy paths, unusual but valid input, adversarial cases, failure modes), stop and ask.
 - If the work needs a decision that no ADR covers, or contradicts an accepted ADR, stop and ask. Don't make the decision silently.

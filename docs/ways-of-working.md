@@ -8,7 +8,12 @@
 
 ## Backlog structure (GitHub)
 
-- **GitHub Project** (v2) for the whole product. Columns: *Backlog -> Ready -> In progress -> In review -> Done*. The order within a column is the priority.
+- **GitHub Project** (v2) for the whole product. Columns: *Backlog -> Ready -> In progress -> In review -> Done*.
+  **The order of the board is the plan**: top to bottom within each column is the planned sequence, following the roadmap, the epics' sub-issue order and the issue dependencies.
+  - The next issue to work on is the **top of *Ready***. People and agents take that one, not one picked by preference. If there is a reason to skip it (for example it's blocked), say so and ask.
+  - Refinement takes the **top of *Backlog***, brings it to the [Definition of Ready](#definition-of-ready-story) and moves it to *Ready*, so *Ready* always holds the next few issues.
+  - Reordering is a planning decision, made in a docs and issues review, not as a side effect of starting work.
+
   Whoever starts an issue moves it to *In progress* before starting, and to *In review* when its pull request opens. The board shows what is actually happening.
   Two custom fields, each kept because it changes what someone does:
 
