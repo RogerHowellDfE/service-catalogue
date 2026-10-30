@@ -13,7 +13,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <AspireUseCliBundle>true</AspireUseCliBundle>
-    <UserSecretsId>897278b8-e964-444c-bd1e-f9834f01d4f2</UserSecretsId>
+    <UserSecretsId>dfe-service-catalogue-apphost-897278b8</UserSecretsId>
   </PropertyGroup>
 
 </Project>
