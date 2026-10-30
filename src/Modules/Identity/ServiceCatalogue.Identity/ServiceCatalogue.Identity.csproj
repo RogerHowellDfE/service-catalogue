@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceCatalogue.Identity.Contracts\ServiceCatalogue.Identity.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\ServiceCatalogue.SharedKernel\ServiceCatalogue.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>
