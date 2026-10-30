@@ -1,7 +1,7 @@
 # Base generated with `dotnet new editorconfig` (.NET SDK template), then edited:
 # the [*] section and the Windows script, Markdown, YAML and web asset sections were added.
-# Check: dotnet format ServiceCatalogue.slnx --verify-no-changes --severity info (drop --verify-no-changes to fix).
-# Every rule at suggestion or above is enforced by that check; set a rule to silent to stop enforcing it.
+# Checked by dotnet format (commands: README.md, Developing). Every rule at suggestion or above is enforced;
+# set a rule to silent to stop enforcing it.
 
 root = true
 

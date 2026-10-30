@@ -9,13 +9,13 @@ Status: Accepted
 - Amends / Amended by: -
 - Depends on / Required by: Depends on [0003](0003-dotnet-and-aspire.md) (Aspire orchestrates the first run, and holds parameters and secrets)
 - Complements: [0006](0006-authentication-and-authorisation.md) (the persona selector is the sign-in fallback), [0007](0007-github-access.md) (the fake GitHub source), [0011](0011-first-run-bootstrap.md) (first run builds on a working, unconfigured app), [0014](0014-credential-less-by-default.md) (secrets that are still needed are declared)
-- Related: [0009](0009-local-first-hosting.md) (running locally with no secrets), [0013](0013-single-source-of-truth.md) (README sections generated from declarations)
+- Related: [0009](0009-local-first-hosting.md) (running locally with no secrets), [0013](0013-single-source-of-truth.md) (README sections generated from declarations), [0016](0016-one-obvious-way.md) (each integration decides its own mode)
 - Unknowns, requirements and needs: NFR-D1, NFR-D3, NFR-D4, NFR-D6, NFR-D7, NFR-Q7, R6, U24
 
 ## Context
 
 The first-run experience comes first (vision principle 10). A new contributor, or an AI agent, must get a working service from
-`git clone` -> `dotnet build` -> `dotnet run` without asking anyone for secrets. Every integration we add (GitHub, Entra ID, GOV.UK Notify,
+a fresh clone ([getting started](../../README.md#getting-started)) without asking anyone for secrets. Every integration we add (GitHub, Entra ID, GOV.UK Notify,
 endoflife.date, ADO...) is a new way for that to break. Fakes also bring a risk of their own: demo data being mistaken for real data, or a
 security-relevant fake (sign-in) being switched on where it shouldn't be.
 
@@ -31,9 +31,13 @@ security-relevant fake (sign-in) being switched on where it shouldn't be.
 - **Recorders instead of silence**: outbound side effects (for example GOV.UK Notify) are recorded and shown on an admin page when not configured.
 - **Required secrets are declared in code** (NFR-D6), together with how to opt in to the real integration: copy-paste commands with placeholders,
   where to get the value, its minimum permissions, and how to check it worked (NFR-D7). The README section and the Integrations status page are
-  **generated from those declarations**, so they can't drift. Configuration is set through Aspire parameters and connection strings on the AppHost.
+  **generated from those declarations**, so they can't drift.
+- **Locally, configuration has one home: the AppHost.** Variants (a real GitHub token, a personal Entra tenant, a shared database) are Aspire parameters
+  and connection strings in the AppHost's user-secrets, which Aspire passes to Web and Worker. Web and Worker don't load user-secrets of their own;
+  running them without the AppHost means supplying configuration as environment variables or command-line arguments. Deployed environments get the
+  same settings from the platform (Key Vault references, read with managed identity), so the options classes don't change between stages.
 - The environment is only checked through `IsLocalDevelopment()` and `IsDevEquivalent()`. ASP.NET Core defaults that only switch on in `Development`
-  (user-secrets, the developer exception page) are switched on explicitly for `LocalDevelopment`.
+  (the developer exception page, static web assets, service registration validation) are switched on explicitly for `LocalDevelopment`.
 
 ## Standards and guidance
 
@@ -50,7 +54,7 @@ Departures from a recommendation, and why: none.
 - **Startup tests**: for each environment x each integration (configured or not), start the host and check the mode it gets. Expect a failure for sign-in that isn't configured outside `LocalDevelopment`.
 - **Analyser**: every integration options class declares what happens when it isn't configured, and nothing reads configuration outside options classes (NFR-V4).
 - **Analyser**: bans `IsDevelopment()`.
-- **Test**: user-secrets and the developer exception page are on in `LocalDevelopment` and off everywhere else.
+- **Test**: the developer exception page and service registration validation are on in `LocalDevelopment` and off everywhere else. Web doesn't load user-secrets.
 - **Playwright**: the banner is shown whenever any fake is active, and the Integrations status page lists every registered integration.
 - **CI**: the README's required-secrets and opt-in section is regenerated from the declarations and compared, and the build fails if it differs.
 - **Test**: every registered integration has an opt-in declaration with at least one command, a "where to get it" link and its minimum permissions.

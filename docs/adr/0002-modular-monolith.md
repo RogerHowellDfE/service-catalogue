@@ -10,7 +10,7 @@ Status: Accepted
 - Depends on: -
 - Required by: [0004](0004-postgresql.md) (one schema per module), [0008](0008-snapshots-provenance-and-checks.md) (how the data pipeline is split between modules)
 - Complements: -
-- Related: [0012](0012-verification-checks-and-drift-detection.md) (architecture tests are one kind of check)
+- Related: [0012](0012-verification-checks-and-drift-detection.md) (architecture tests are one kind of check), [0016](0016-one-obvious-way.md) (module registration)
 - Unknowns, requirements and needs: NFR-O1, NFR-Q2
 
 ## Context

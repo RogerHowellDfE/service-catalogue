@@ -8,7 +8,7 @@ Status: Accepted
 - Supersedes / Superseded by: -
 - Amends / Amended by: Amends [0001](0001-record-architecture-decisions.md) (the ADR index and relationship summaries are generated, not hand-written)
 - Depends on / Required by: -
-- Complements: [0012](0012-verification-checks-and-drift-detection.md) (the docs checker is one kind of check)
+- Complements: [0012](0012-verification-checks-and-drift-detection.md) (the docs checker is one kind of check), [0016](0016-one-obvious-way.md) (one home for each fact; one way for each job)
 - Related: [0010](0010-unconfigured-integrations-fall-back-safely.md) (README sections generated from integration declarations), [0015](0015-date-based-versions-and-changelog.md) (the changelog format is checked)
 - Unknowns, requirements and needs: NFR-V1, NFR-V5, NFR-D6, NFR-D7
 

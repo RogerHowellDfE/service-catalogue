@@ -24,6 +24,8 @@ in November 2026. Aspire (13.x) gives local orchestration (Web, Worker, PostgreS
 - Create the solution from the current templates, using the `ServiceCatalogue.*` naming and the module layout in the [architecture](../architecture.md#proposed-solution-layout).
 - No separate API service (see alternatives). A read API (C18) can be added later.
 - Use Central Package Management (`Directory.Packages.props`) and shared `Directory.Build.props` (nullable enabled, warnings as errors where practical, analysers).
+- Tests use **xUnit v3** on Microsoft.Testing.Platform.
+- Run locally with the **Aspire CLI**, pinned as a local tool in `dotnet-tools.json` (commands: [getting started](../../README.md#getting-started)).
 - Aspire is for **local orchestration only** for now. The deployment tooling and infrastructure as code are decided separately (U18: DfE recommends Terraform/ARM).
 
 ## Standards and guidance
@@ -47,3 +49,6 @@ in November 2026. Aspire (13.x) gives local orchestration (Web, Worker, PostgreS
 
 - Keep the default Aspire template's separate API service: rejected because there's no need for an HTTP API between our own components inside the monolith.
 - Not using Aspire: rejected because it would mean losing simple local orchestration and the telemetry defaults.
+- NUnit or MSTest: both capable. xUnit v3 is what the Aspire, Testcontainers and Playwright examples use, and it runs natively on Microsoft.Testing.Platform.
+- `dotnet run --project src/ServiceCatalogue.AppHost` as the run command: works, but the Aspire CLI finds the AppHost, trusts the development
+  certificate and prints the dashboard link. Pinning it as a local tool means everyone gets the same version without a global install.

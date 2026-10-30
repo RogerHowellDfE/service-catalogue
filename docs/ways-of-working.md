@@ -274,6 +274,16 @@ New findings at medium severity or above fail the build. Exceptions are recorded
 - Test layers: unit -> integration (Testcontainers PostgreSQL, fake or fault-injecting GitHub source) -> browser (Playwright, with video and trace) -> architecture -> DAST (ZAP).
 - Never call live external APIs in CI tests.
 
+### Tracing tests to their source
+
+- Every test class has a trait for each current source of the behaviour it tests: `[Trait("Issue", "11")]`, `[Trait("Decision", "ADR-0010")]`,
+  `[Trait("Requirement", "NFR-D4")]`. Put a trait on a test method when it applies to that test only.
+- **Before changing a failing test, read its sources.** If the change contradicts them, the source changes first (or alongside), not just the test.
+- Traits list current sources only. When a decision is superseded or an issue's behaviour is replaced, swap the trait; git history keeps the old one.
+- Test names describe behaviour. Add a reference to the name (`..._issue14_ac3`) only where it really helps, for example a browser test that walks one acceptance criterion.
+- **Changed behaviour leaves a trail.** When a change contradicts an earlier issue's acceptance criteria, comment on the old issue linking to the new one,
+  and link back from the new issue, so either end leads to the other.
+
 ## AI-assisted delivery
 
 - **Planning, architecture, ADRs, refining acceptance criteria (especially unusual input, adversarial cases and failure modes) and reviews**: use a high-capability model.
