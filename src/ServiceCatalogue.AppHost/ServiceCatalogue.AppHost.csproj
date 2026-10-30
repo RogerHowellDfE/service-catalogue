@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ServiceCatalogue.Web\ServiceCatalogue.Web.csproj" />
     <ProjectReference Include="..\ServiceCatalogue.Worker\ServiceCatalogue.Worker.csproj" />
+    <ProjectReference Include="..\ServiceCatalogue.SharedKernel\ServiceCatalogue.SharedKernel.csproj" IsAspireProjectResource="false" />
   </ItemGroup>
 
   <ItemGroup>

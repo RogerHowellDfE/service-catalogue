@@ -7,6 +7,7 @@ using Microsoft.Extensions.ServiceDiscovery;
 using OpenTelemetry;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
+using ServiceCatalogue.SharedKernel;
 
 namespace Microsoft.Extensions.Hosting;
 
@@ -18,8 +19,13 @@ public static class Extensions
     private const string HealthEndpointPath = "/health";
     private const string AlivenessEndpointPath = "/alive";
 
+    /// <summary>
+    /// OpenTelemetry, health checks, service discovery and HTTP resilience. In LocalDevelopment, also validates service registrations at startup.
+    /// </summary>
     public static TBuilder AddServiceDefaults<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
+        ValidateServiceRegistrationsInLocalDevelopment(builder);
+
         builder.ConfigureOpenTelemetry();
 
         builder.AddDefaultHealthChecks();
@@ -106,11 +112,12 @@ public static class Extensions
         return builder;
     }
 
+    /// <summary>Maps /health and /alive in LocalDevelopment and Development only; elsewhere maps nothing.</summary>
     public static WebApplication MapDefaultEndpoints(this WebApplication app)
     {
         // Adding health checks endpoints to applications in non-development environments has security implications.
         // See https://aka.ms/aspire/healthchecks for details before enabling these endpoints in non-development environments.
-        if (app.Environment.IsDevelopment())
+        if (app.Environment.IsDevEquivalent())
         {
             // All health checks must pass for app to be considered ready to accept traffic after starting
             app.MapHealthChecks(HealthEndpointPath);
@@ -123,5 +130,18 @@ public static class Extensions
         }
 
         return app;
+    }
+
+    // The host only validates in Development; LocalDevelopment needs the same early failure (ADR-0010).
+    private static void ValidateServiceRegistrationsInLocalDevelopment(IHostApplicationBuilder builder)
+    {
+        if (builder.Environment.IsLocalDevelopment())
+        {
+            builder.ConfigureContainer(new DefaultServiceProviderFactory(new ServiceProviderOptions
+            {
+                ValidateScopes = true,
+                ValidateOnBuild = true,
+            }));
+        }
     }
 }
