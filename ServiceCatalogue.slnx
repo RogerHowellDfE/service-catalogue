@@ -28,7 +28,6 @@
     <Project Path="src/Modules/Sources/ServiceCatalogue.Sources/ServiceCatalogue.Sources.csproj" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests/ServiceCatalogue.ArchitectureTests/ServiceCatalogue.ArchitectureTests.csproj" />
     <Project Path="tests/ServiceCatalogue.SharedKernel.UnitTests/ServiceCatalogue.SharedKernel.UnitTests.csproj" />
     <Project Path="tests/ServiceCatalogue.Web.IntegrationTests/ServiceCatalogue.Web.IntegrationTests.csproj" />
   </Folder>
