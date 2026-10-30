@@ -21,7 +21,7 @@ Everyone taking part must follow the [DfE code of conduct](https://github.com/DF
 - **No secrets in the repository**, and prefer credential-less access ([ADR-0014](docs/adr/0014-credential-less-by-default.md)).
 - **Change each fact in its canonical home only** ([ADR-0013](docs/adr/0013-single-source-of-truth.md)). If your change alters a decision, add or supersede an ADR in the same pull request.
 - Use [Conventional Commits](https://www.conventionalcommits.org/) for commits and pull request titles ([branching and commits](docs/ways-of-working.md#branching-and-commits)).
-- Add a [changelog](CHANGELOG.md) entry for anything a user would notice ([changelog and versions](docs/ways-of-working.md#changelog-and-versions)).
+- Add a [changelog](CHANGELOG.md) entry for every pull request; small changes can join a general entry ([changelog and versions](docs/ways-of-working.md#changelog-and-versions)).
 
 ## Pull requests
 

@@ -319,6 +319,11 @@ New findings at medium severity or above fail the build. Exceptions are recorded
 - A human-readable [`CHANGELOG.md`](../CHANGELOG.md) at the root of the repository. Each entry describes **one coherent change, as a user would describe it**,
   and lists every issue and pull request that contributed to it, for example `- Admins can add and remove tracked GitHub organisations (#12, #15, #21)`.
   Several pull requests that deliver one change share one entry.
-- Changes go under `## Unreleased` in the same pull request. Chores with nothing to tell users (for example a dependency bump with no effect) use the `no-changelog` label.
+- Every pull request changes `## Unreleased` in the same pull request, so every pull request can be found in the changelog.
+  Small changes join a general entry rather than being left out, for example `- Updates to the developer docs (#41, #42)`.
+  The `no-changelog` label is for rare cases (for example a throwaway evidence pull request that is never merged), with the reason in the pull request.
+- Within a version, entries sit under sections, in this order, showing only the sections that have entries
+  (based on [Keep a Changelog](https://keepachangelog.com/)): `Breaking changes`, `Security`, `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Documentation`, `Developer and internal`.
+  `Developer and internal` covers CI, tooling, dependency updates and repository settings: things contributors notice but users don't.
 - Versions are date-based: `vYYYY.MM.DD-NNN`, where `NNN` starts at `001` each day (UTC) and goes up by one for each release that day.
   For example `v2026.10.28-001`, `v2026.10.28-002`, then `v2026.10.29-001`. See [ADR-0015](adr/0015-date-based-versions-and-changelog.md).
