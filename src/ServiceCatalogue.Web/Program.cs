@@ -9,6 +9,7 @@ using ServiceCatalogue.Web;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.AddStaticAssets();
 builder.AddNpgsqlDataSource("servicecatalogue");
 
 builder.Services
