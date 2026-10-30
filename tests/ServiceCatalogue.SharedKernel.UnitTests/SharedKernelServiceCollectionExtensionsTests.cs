@@ -9,10 +9,9 @@ public class SharedKernelServiceCollectionExtensionsTests
     [Fact]
     public void AddSharedKernel_registers_the_system_TimeProvider()
     {
-        var unused = 1;
         using var provider = new ServiceCollection().AddSharedKernel().BuildServiceProvider();
 
-        Assert.Same(TimeProvider.System, provider.GetService<TimeProvider>());
+            Assert.Same(TimeProvider.System, provider.GetService<TimeProvider>());
     }
 
     [Fact]
