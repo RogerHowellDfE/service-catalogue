@@ -26,6 +26,9 @@ Open the dashboard link printed in the terminal. It lists each resource and its 
 Nothing needs configuring: anything not set up falls back to a fake or is turned off, and says so.
 
 If resources stay "Waiting" or show as unhealthy, the terminal may not say why; check the dashboard for details.
+Stop the app with Ctrl+C or `dotnet aspire stop`, which removes its containers. If a container was restarted with `dotnet aspire resource <name> start`, it can be left running afterwards,
+using memory and CPU until it's stopped and disk until it's removed. An interrupted run can also leave a stopped container behind, which uses disk only.
+`docker ps -a` lists both (the name starts with the resource name, for example `postgres-`), and `docker rm -f -v <name>` removes it and its data.
 
 ### Developing
 
