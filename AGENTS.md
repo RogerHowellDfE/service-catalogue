@@ -49,6 +49,7 @@ Tests and data
 Evidence and delivery
 - Every pull request has before and after evidence matched to each acceptance criterion. Recordings for journeys (NFR-Q4, [evidence](docs/ways-of-working.md#evidence)).
 - Conventional Commits, with the Copilot co-author trailer ([branching and commits](docs/ways-of-working.md#branching-and-commits)).
+- CI must be green, and the branch up to date with `main`, before merging ([branching and commits](docs/ways-of-working.md#branching-and-commits)).
 - Changelog entry for user-visible changes ([ADR-0015](docs/adr/0015-date-based-versions-and-changelog.md)).
 
 Documentation
