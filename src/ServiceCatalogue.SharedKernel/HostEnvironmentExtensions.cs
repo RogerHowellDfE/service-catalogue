@@ -11,8 +11,16 @@ public static class HostEnvironmentExtensions
     public const string LocalDevelopment = "LocalDevelopment";
 
     /// <summary>A developer's machine or CI: the only place security-relevant fakes are allowed.</summary>
-    public static bool IsLocalDevelopment(this IHostEnvironment environment) => false;
+    public static bool IsLocalDevelopment(this IHostEnvironment environment)
+    {
+        ArgumentNullException.ThrowIfNull(environment);
+        return environment.IsEnvironment(LocalDevelopment);
+    }
 
     /// <summary><c>LocalDevelopment</c> or the deployed <c>Development</c> environment.</summary>
-    public static bool IsDevEquivalent(this IHostEnvironment environment) => false;
+    public static bool IsDevEquivalent(this IHostEnvironment environment)
+    {
+        ArgumentNullException.ThrowIfNull(environment);
+        return environment.IsLocalDevelopment() || environment.IsEnvironment(Environments.Development);
+    }
 }
