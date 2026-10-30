@@ -267,6 +267,9 @@ New findings at medium severity or above fail the build. Exceptions are recorded
   Prefer small, self-contained pull requests; one issue can be delivered by several. Some bootstrapping work has to touch many files at once, but otherwise avoid large pull requests.
   The branch's commits stay in the history, including the red-then-green commits that show [test-driven development](#test-driven-development).
   The merge commit takes the pull request's title and description. Branches are deleted after merging.
+- CI (`build-and-test` and `format`) must pass before a pull request merges; both are required checks on `main`.
+  Bring a pull request up to date with the latest `main` before merging it, so its green checks reflect what will land. The ruleset doesn't enforce this; any exception is deliberate.
+  CI also runs on every push to `main`, which catches two separately green changes that break each other.
 - [Conventional Commits](https://www.conventionalcommits.org/) for commit messages and pull request titles, for example `feat(sources): add tracked organisation admin`.
 - Repository settings and the `main` ruleset aren't stored in the code. Changes to them are recorded in an issue with before and after values (#1).
 - Each commit includes the Copilot co-author trailer when Copilot helped write it.

@@ -110,6 +110,7 @@ See [ADR-0011](adr/0011-first-run-bootstrap.md): the first user to sign in becom
 
 CI runs the application as `LocalDevelopment`: it's short-lived and has no real credentials, so the fresh-clone, browser and ZAP jobs can use the persona selector and fakes.
 Which tests run on each trigger (every push, pull request, after merging, on a schedule, or against a deployed environment) is U28.
+The first call: `.github/workflows/ci.yml` runs everything fast on every pull request and every push to `main`, as two parallel jobs, `build-and-test` and `format`, so a formatting failure never stops tests running and reporting. Restores are in locked mode against the committed `packages.lock.json` files. Split jobs out by trigger only when the run gets slow (about 10 minutes).
 
 ## Verification checks and drift detection
 
