@@ -20,6 +20,7 @@ and [ways of working: changelog and versions](docs/ways-of-working.md#changelog-
 - Architecture decision record 0017: GOV.UK Frontend through the tag helpers, compiled with our own Sass and no Node; DfE Frontend v3 added when a story needs a DfE component (#19)
 - Ways of working: backlog conventions, recording anything left over as an issue before merging, preferring small pull requests, and a changelog entry for every pull request, grouped into sections (#2, #42, #46)
 - Developing: how to remove a container left behind after a resource restart (#41)
+- Unknowns: how hosts may use module implementations (U29), answered by a spike (#52)
 
 ### Developer and internal
 
