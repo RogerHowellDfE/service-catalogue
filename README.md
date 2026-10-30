@@ -25,6 +25,8 @@ dotnet aspire run
 Open the dashboard link printed in the terminal. It lists each resource and its address; select the `web` endpoint to open the site.
 Nothing needs configuring: anything not set up falls back to a fake or is turned off, and says so.
 
+If resources stay "Waiting" or show as unhealthy, the terminal may not say why; check the dashboard for details.
+
 ### Developing
 
 ```shell
