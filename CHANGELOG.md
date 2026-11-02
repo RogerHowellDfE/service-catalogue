@@ -18,6 +18,7 @@ and [ways of working: changelog and versions](docs/ways-of-working.md#changelog-
 - Architecture decision records 0001 to 0015, including first-run fallbacks, verification and drift detection, a single source of truth for docs, credential-less access, and date-based versions (before the backlog existed, so no issue)
 - Architecture decision record 0016: one obvious way to do each thing, with Program.cs as a flat list and environment behaviour decided by the extension it calls (#11)
 - Architecture decision record 0017: GOV.UK Frontend through the tag helpers, compiled with our own Sass and no Node; DfE Frontend v3 added when a story needs a DfE component (#19)
+- Threat model: the first STRIDE threat model for M0 and M1, by trust boundary, with open risks for AI agents (U29) and the shared database login (U30) (#10)
 - Ways of working: backlog conventions, recording anything left over as an issue before merging, preferring small pull requests, and a changelog entry for every pull request, grouped into sections (#2, #42, #46)
 - Developing: how to remove a container left behind after a resource restart (#41)
 
