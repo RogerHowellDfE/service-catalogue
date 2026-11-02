@@ -1,12 +1,12 @@
 # 0005. Server-rendered UI with GOV.UK and DfE frontend
 
 Date: 2026-10-29
-Status: Accepted. The choice of DfE Frontend distribution is still **Proposed**, pending the spike (U2). The outcome will be recorded in an ADR that **amends** this one.
+Status: Accepted. The DfE Frontend distribution and how frontend assets are built are decided in [0017](0017-govuk-frontend-tag-helpers-own-sass.md), which amends this one.
 
 ## Related decisions
 
 - Supersedes / Superseded by: -
-- Amends / Amended by: - (expect an ADR on the DfE Frontend distribution, from U2)
+- Amends / Amended by: Amended by [0017](0017-govuk-frontend-tag-helpers-own-sass.md) (DfE Frontend distribution and asset build)
 - Depends on: [0003](0003-dotnet-and-aspire.md) (ASP.NET Core)
 - Required by: -
 - Complements: [0006](0006-authentication-and-authorisation.md) (the Content Security Policy, anti-forgery and sign-in pages use these components)

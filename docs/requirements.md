@@ -59,7 +59,7 @@ See [standards and guidance](standards.md) for the full list and the abbreviatio
 
 ### Accessibility and frontend
 
-- **NFR-A1** Server-rendered HTML using the GOV.UK and DfE design systems (components, patterns and branding). Which packages are used is decided in [ADR-0005](adr/0005-server-rendered-ui-govuk-dfe-frontend.md) (U2). We publish an accessibility statement (WCAG 2.2 AA).
+- **NFR-A1** Server-rendered HTML using the GOV.UK and DfE design systems (components, patterns and branding). Which packages are used is decided in [ADR-0005](adr/0005-server-rendered-ui-govuk-dfe-frontend.md) and [ADR-0017](adr/0017-govuk-frontend-tag-helpers-own-sass.md). We publish an accessibility statement (WCAG 2.2 AA).
 - **NFR-A2** Fully usable without JavaScript. JavaScript is only a progressive enhancement. Browser tests prove that the main user journeys work with JavaScript turned off.
 - **NFR-A3** Automated accessibility checks in browser tests (Playwright with axe-core). Manual checks with keyboard and assistive technology for each new pattern.
 
@@ -77,7 +77,7 @@ See [standards and guidance](standards.md) for the full list and the abbreviatio
 - **NFR-D1** **Ten-minute start**: a fresh clone, following the README's [getting started](../README.md#getting-started), gives a working, realistic-looking service
   with seeded fake data, without configuring any secrets. **Aspire is fundamental to this**: it starts PostgreSQL, Web and Worker and connects them.
   Prerequisites are kept to a minimum and listed in the README: the .NET 10 SDK, a container runtime that Aspire supports (Docker Desktop or Podman, see R6),
-  and Node only if it can't be avoided (see U24).
+  and no Node ([ADR-0017](adr/0017-govuk-frontend-tag-helpers-own-sass.md)).
   This is checked in CI by a "fresh clone" job that runs on a clean runner, with a time limit.
 - **NFR-D2** **Frontend assets are built by the .NET build.** Any npm, Sass or JS bundling runs through MSBuild targets, built incrementally
   (Inputs/Outputs), so `dotnet build` is enough. No separate manual step.

@@ -10,7 +10,7 @@ Status: Accepted
 - Depends on / Required by: Depends on [0003](0003-dotnet-and-aspire.md) (Aspire orchestrates the first run, and holds parameters and secrets)
 - Complements: [0006](0006-authentication-and-authorisation.md) (the persona selector is the sign-in fallback), [0007](0007-github-access.md) (the fake GitHub source), [0011](0011-first-run-bootstrap.md) (first run builds on a working, unconfigured app), [0014](0014-credential-less-by-default.md) (secrets that are still needed are declared)
 - Related: [0009](0009-local-first-hosting.md) (running locally with no secrets), [0013](0013-single-source-of-truth.md) (README sections generated from declarations), [0016](0016-one-obvious-way.md) (each integration decides its own mode)
-- Unknowns, requirements and needs: NFR-D1, NFR-D3, NFR-D4, NFR-D6, NFR-D7, NFR-Q7, R6, U24
+- Unknowns, requirements and needs: NFR-D1, NFR-D3, NFR-D4, NFR-D6, NFR-D7, NFR-Q7, R6, R8
 
 ## Context
 

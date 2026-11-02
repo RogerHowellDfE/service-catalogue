@@ -29,7 +29,7 @@ Goal: everything needed to deliver slices safely, and the smallest end-to-end pa
   - Playwright checks for headers, Content Security Policy and frontend markup
 - CI: build, test (all layers), CodeQL (DfE SAST workflow), Dependabot, secret scanning, ZAP baseline. Pull request template with an evidence section.
 - Repo hygiene: meet every row marked M0 in the [DfE repository requirements](standards.md#dfe-repository-requirements) (with the single-developer departure, U19), plus a README, SECURITY.md and the Copilot/agent instructions.
-- Spike: decide which DfE Frontend distribution to use (and record the decision in an ADR).
+- Spike: decide which DfE Frontend distribution to use (#19, decided in [ADR-0017](adr/0017-govuk-frontend-tag-helpers-own-sass.md)).
 
 ### M1: GitHub census (first value for leadership)
 

@@ -8,7 +8,7 @@ Status: Accepted
 - Supersedes / Superseded by: -
 - Amends / Amended by: -
 - Depends on: -
-- Required by: [0005](0005-server-rendered-ui-govuk-dfe-frontend.md) (ASP.NET Core UI), [0009](0009-local-first-hosting.md) (Aspire for running locally), [0010](0010-unconfigured-integrations-fall-back-safely.md) (Aspire orchestrates the first run)
+- Required by: [0005](0005-server-rendered-ui-govuk-dfe-frontend.md) (ASP.NET Core UI), [0009](0009-local-first-hosting.md) (Aspire for running locally), [0010](0010-unconfigured-integrations-fall-back-safely.md) (Aspire orchestrates the first run), [0017](0017-govuk-frontend-tag-helpers-own-sass.md) (frontend packages through Central Package Management)
 - Complements: -
 - Related: -
 - Unknowns, requirements and needs: U18 (infrastructure as code), U21 (telemetry backend), NFR-O3, NFR-O5

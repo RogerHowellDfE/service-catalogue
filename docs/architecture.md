@@ -146,7 +146,7 @@ Examples, starting with ourselves:
 | Notifications | GOV.UK Notify | Later |
 | API catalogue | Find and Use an API (api.gov.uk) | Link to it; don't duplicate. Register our read API there later. |
 | Metadata file conventions | Backstage `catalog-info.yaml`, `publiccode.yml` | Inform the sidecar schema |
-| Design system | GOV.UK Frontend + DfE Frontend | See NFR-A1 |
+| Design system | GOV.UK Frontend through `GovUk.Frontend.AspNetCore`, with our own Sass; DfE Frontend v3 when a DfE component is needed | NFR-A1, [ADR-0017](adr/0017-govuk-frontend-tag-helpers-own-sass.md) |
 
 All external integrations sit behind interfaces in the Sources module, with tests against recorded responses.
 

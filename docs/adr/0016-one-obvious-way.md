@@ -9,7 +9,7 @@ Status: Accepted
 - Amends / Amended by: -
 - Depends on / Required by: -
 - Complements: [0012](0012-verification-checks-and-drift-detection.md) (conventions come with checks), [0013](0013-single-source-of-truth.md) (one home for each fact; this is one way for each job)
-- Related: [0002](0002-modular-monolith.md) (module registration), [0010](0010-unconfigured-integrations-fall-back-safely.md) (each integration decides its own mode)
+- Related: [0002](0002-modular-monolith.md) (module registration), [0010](0010-unconfigured-integrations-fall-back-safely.md) (each integration decides its own mode), [0017](0017-govuk-frontend-tag-helpers-own-sass.md) (one entry point for styles and one way to add scripts)
 - Unknowns, requirements and needs: NFR-D4, NFR-V4
 
 ## Context
