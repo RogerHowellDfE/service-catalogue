@@ -67,7 +67,7 @@ Relationships are recorded in each ADR's *Related decisions* section (the source
 | [0002](0002-modular-monolith.md) | Modular monolith with Web and Worker hosts | Accepted |
 | [0003](0003-dotnet-and-aspire.md) | .NET 10 LTS and Aspire | Accepted |
 | [0004](0004-postgresql.md) | PostgreSQL as the primary datastore | Accepted |
-| [0005](0005-server-rendered-ui-govuk-dfe-frontend.md) | Server-rendered UI with GOV.UK and DfE frontend | Accepted (DfE distribution Proposed, U2) |
+| [0005](0005-server-rendered-ui-govuk-dfe-frontend.md) | Server-rendered UI with GOV.UK and DfE frontend | Accepted (amended by 0017) |
 | [0006](0006-authentication-and-authorisation.md) | Entra ID authentication, role-based authorisation, sign-in required by default | Accepted |
 | [0007](0007-github-access.md) | GitHub access through a token, behind a connector interface | Accepted |
 | [0008](0008-snapshots-provenance-and-checks.md) | Raw snapshots, observations with their sources, and versioned checks | Proposed |
@@ -79,6 +79,7 @@ Relationships are recorded in each ADR's *Related decisions* section (the source
 | [0014](0014-credential-less-by-default.md) | Credential-less by default: workload identity and federation before secrets | Accepted |
 | [0015](0015-date-based-versions-and-changelog.md) | Date-based versions and a human-readable changelog | Accepted |
 | [0016](0016-one-obvious-way.md) | One obvious way: few patterns, explicit and discoverable | Accepted |
+| [0017](0017-govuk-frontend-tag-helpers-own-sass.md) | GOV.UK Frontend through the tag helpers, compiled with our own Sass; DfE Frontend v3 added when needed | Accepted |
 <!-- generated:end -->
 
 ## Template

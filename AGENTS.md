@@ -27,6 +27,7 @@ Architecture and stack
 - One obvious way: follow the existing pattern before adding another. Program.cs is a flat list with no environment checks; the extension it calls decides,
   and its name and summary say how ([ADR-0016](docs/adr/0016-one-obvious-way.md)).
 - Server-rendered GOV.UK and DfE frontend. Every journey works without JavaScript ([ADR-0005](docs/adr/0005-server-rendered-ui-govuk-dfe-frontend.md), NFR-A1, NFR-A2).
+- GOV.UK components through the tag helpers; styles through the one `app.scss`; scripts as plain ES modules; no Node ([ADR-0017](docs/adr/0017-govuk-frontend-tag-helpers-own-sass.md)).
 
 Security
 - Every page requires sign-in and an explicit authorisation policy unless reviewed otherwise (NFR-S1, NFR-S2, [ADR-0006](docs/adr/0006-authentication-and-authorisation.md)).
