@@ -153,7 +153,7 @@ All external integrations sit behind interfaces in the Sources module, with test
 ## Security model (summary)
 
 The requirements are NFR-S1 to S11 in [requirements](requirements.md#security-secure-by-design). The decisions are [ADR-0006](adr/0006-authentication-and-authorisation.md) and [ADR-0010](adr/0010-unconfigured-integrations-fall-back-safely.md).
-The threat model lives in `docs/security/threat-model.md` and is updated when a slice adds a new trust boundary.
+The [threat model](security/threat-model.md) lists threats by trust boundary, and is updated when a slice adds a new trust boundary.
 
 ## Proposed solution layout
 
